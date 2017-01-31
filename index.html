@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>App</title>
+    <script src="js/react-dom.js"></script>
+    <script src="js/react.js"></script>
+</head>
+<body>
+    <div id="app"> </div>
+    <script>
+           var data = [];
+       
+      var component = React.createClass({
+           
+
+
+
+           getInitialState:  function(){
+               return {
+                   text: this.props.text,
+               }
+           },
+           _sendMassage: function(ev){
+            ev.preventDefault();
+            var value = document.getElementById('value').value;
+            data.push(value);
+            this.setState({
+                text: data,
+            })
+           },
+          
+           
+           render: function(){
+               return (
+                   React.DOM.div(null,
+                   React.DOM.input({
+                       tpye: 'text',
+                       id: 'value',
+                       text: this.props.text,
+                   }),
+                   React.DOM.button(
+                       {
+                           onClick: this._sendMassage,
+                           type:'button',
+                           value: 'submit' 
+                       },
+                      ' SUBMIT'
+                   ),
+                   React.DOM.div(
+                       null,
+                       this.props.text.map(function(title , idx) {
+                            var item = idx + 1;
+                           return React.DOM.div(
+                               {key: idx},
+                                 item+ '.  ' +title,
+                               React.DOM.span({
+
+                                    id: idx, 
+                               },
+                               '')
+                           
+                           )
+                   })
+                     )
+                   )
+               )
+           }
+           
+       });
+       ReactDOM.render(
+           
+               React.createElement(component,{
+                   text: data,
+               }),
+               document.getElementById('app')
+           
+       )
+        
+    </script>
+</body>
+</html>
