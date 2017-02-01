@@ -1,0 +1,43 @@
+body{
+    background-image: url('./image/back.jpg')
+
+}
+#heading{
+    text-align: center;
+}
+#main{
+    
+    width: 50%;
+    margin: 5% auto;
+}
+
+#main input{
+    width: 80%;
+    padding: 1%;
+    
+    border: 1px solid gray;
+}
+
+#main button{
+    color: white;
+    background: cadetblue;
+    width: 16%;
+    padding: 1%;
+    border: 1px solid gray;
+}
+.item{
+    width: 95%;
+    margin: 1%;
+    
+    padding: 0% 1%;
+   
+    border-bottom: 1px solid #dddddd;
+    float: left;
+}
+.item  button{
+    float: right;
+    color: white;
+    background: cadetblue;
+    height: 100%;
+}
+
